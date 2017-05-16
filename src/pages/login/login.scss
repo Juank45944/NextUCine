@@ -1,0 +1,21 @@
+
+.intro{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.intro h1{
+    width: 100%;
+    text-align: center;
+}
+
+.intro img {
+    width: 40%;
+    height: 100px;
+}
+
+.intro h5 {
+    text-align: center;
+    color: rgb(41.2%, 41.2%, 41.2%)
+}

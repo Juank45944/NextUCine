@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Cartelera
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="getPeliculas($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-fab bottom right>
+    <button ion-fab icon-only color="primary" (click)="irComentarios()">
+      <ion-icon name="text"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let pelicula of peliculas">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img [src]="pelicula.image">
+        </ion-thumbnail>
+        <h2>{{pelicula.titulo}}</h2>
+        <h3>{{pelicula.genero}}</h3>
+        <p>
+          <ion-icon *ngFor="let i of getStars(pelicula.rating)" name="star"></ion-icon>
+        </p>
+        <ion-icon item-right *ngIf="pelicula.favorita" name="heart" color="danger"></ion-icon>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button *ngIf="!pelicula.favorita" ion-button icon-only color="danger" (click)="addFavoritos(pelicula, true)">
+          <ion-icon name="heart"></ion-icon>
+        </button>
+        <button *ngIf="pelicula.favorita" ion-button icon-only color="dark" (click)="addFavoritos(pelicula, false)">
+          <ion-icon name="thumbs-down"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="addComentario(pelicula)">
+          <ion-icon name="text"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

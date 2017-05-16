@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Iniciar Sesión
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="intro">
+    <h1>CineApp</h1>
+    <img src="assets/images/logo.png">
+    <h5>La aplicación para tus grandes películas</h5>
+  </div>
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label floating>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="usuarioALoguear.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="usuarioALoguear.password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button block ion-button color="danger" (click)="login()">Inicia sesión</button>
+  <button clear block ion-button color="danger" (click)="irRegistro()">¿Aún no tienes cuenta? Regístrate aquí</button>
+</ion-content>

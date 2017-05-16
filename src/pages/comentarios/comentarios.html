@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comentarios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="getComentarios($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+
+  <ion-list >
+    <ion-item-sliding *ngFor="let comentario of comentariosCompletos">
+      <ion-item >
+        <ion-avatar item-left>
+          <img [src]="comentario.imagenPelicula">
+        </ion-avatar>
+        <h2>{{comentario.tituloPelicula}}</h2>
+        <h3>{{comentario.titulo}}:</h3>
+        <p>{{comentario.comentario}}</p>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button icon-only color="secondary" (click)="editComentario(comentario)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button ion-button icon-only color="danger" (click)="deleteComentario(comentario)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+
